@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2 class="text-center mb-4">My Tasks</h2>
+  {% if tasks %}
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Category</th>
+          <th>Actions</th>
+          <th>Created At</th>
+          <th>Updated At</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for task in tasks %}
+          <tr>
+            <td>{{ task.title }}</td>
+            <td>{{ task.description }}</td>
+            <td>{{ task.status }}</td>
+            <td>{% if task.category %}{{ task.category.name }}{% else %}Uncategorized{% endif %}</td>
+
+            <td>
+              <a href="{% url 'edit_task' task.id %}" class="btn btn-sm btn-outline-primary">Edit</a>
+              <a href="{% url 'delete_task' task.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+            </td>
+            <td>{{ task.created_at }} </td>
+            <td>{{ task.updated_at }} </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <p class="text-center">No tasks found. <a href="{% url 'add_task' %}">Add a new task</a>.</p>
+  {% endif %}
+{% endblock %}

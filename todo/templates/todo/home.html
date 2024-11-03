@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="text-center">
+    <h1>Welcome to Your To-Do List App</h1>
+    <p class="lead">Stay organized, track your tasks, and boost your productivity.</p>
+    <p>This app is designed to help you manage your daily tasks, keep track of due dates, and stay on top of your to-do list with ease.</p>
+
+    <div class="mt-4">
+      <h3>What You Can Do:</h3>
+      <ul class="list-group mb-4">
+        <li class="list-group-item">Create and manage categories for better task organization.</li>
+        <li class="list-group-item">Add detailed tasks with descriptions, due dates, and statuses.</li>
+        <li class="list-group-item">Track task completion and update task statuses as needed.</li>
+        <li class="list-group-item">View and manage your tasks in a simple, intuitive interface.</li>
+      </ul>
+
+      <div class="mt-4">
+        <a href="{% url 'add_task' %}" class="btn btn-primary">Add a New Task</a>
+        <a href="{% url 'task_list' %}" class="btn btn-secondary">View Your Tasks</a>
+        <a href="{% url 'add_category' %}" class="btn btn-outline-primary">Add a New Category</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mt-5">
+    <h2>Features of This App:</h2>
+    <p>This To-Do List app offers a user-friendly interface to help you manage your tasks effectively:</p>
+    <ul>
+      <li>Organize tasks by categories to keep your projects and priorities clear.</li>
+      <li>Set due dates and receive an overview of upcoming tasks.</li>
+      <li>Track task status with labels such as "Pending," "In Progress," and "Completed."</li>
+      <li>Designed for an easy, seamless user experience with a focus on productivity.</li>
+    </ul>
+  </div>
+
+  <div class="mt-5 text-center">
+    <h3>Get Started Today!</h3>
+    <p>Log in or sign up to start managing your tasks and improving your productivity.</p>
+    <a href="{% url 'signup' %}" class="btn btn-success">Sign Up Now</a>
+  </div>
+{% endblock %}
